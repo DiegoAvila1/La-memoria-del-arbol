@@ -1,2292 +1,693 @@
 /* =========================================
    VARIABLES
 ========================================= */
-
 :root {
-
     --green-dark: #173b2a;
     --green: #286044;
     --green-light: #4f8a5b;
-
     --brown-dark: #3d2416;
     --brown: #70452b;
     --brown-light: #9a6542;
-
     --cream: #f4ead5;
     --cream-light: #fffaf0;
-
     --gold: #d8a94b;
-
     --text: #26352b;
-
     --shadow: rgba(0, 0, 0, 0.2);
-
 }
-
 
 /* =========================================
    GENERAL
 ========================================= */
-
-* {
-
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-}
-
-
-html {
-
-    scroll-behavior: smooth;
-
-}
-
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
+    font-family: Georgia, "Times New Roman", serif;
     background: var(--cream);
     color: var(--text);
-
     overflow-x: hidden;
-
 }
-
-
-button {
-
-    font-family: inherit;
-
-}
-
+button { font-family: inherit; }
 
 /* =========================================
    LOADER
 ========================================= */
-
 #loader {
-
-    position: fixed;
-    inset: 0;
-
+    position: fixed; inset: 0;
     background: var(--green-dark);
     color: white;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
     z-index: 9999;
-
-    transition:
-        opacity .8s ease,
-        visibility .8s ease;
-
+    transition: opacity .8s ease, visibility .8s ease;
 }
-
-
-#loader.hidden {
-
-    opacity: 0;
-    visibility: hidden;
-
-}
-
-
+#loader.hidden { opacity: 0; visibility: hidden; }
 .loader-tree {
-
     font-size: 90px;
-
-    animation:
-        loaderAnimation
-        1.5s infinite alternate;
-
+    animation: loaderAnimation 1.5s infinite alternate;
 }
-
-
-#loader p {
-
-    margin-top: 20px;
-    font-size: 20px;
-
-}
-
-
+#loader p { margin-top: 20px; font-size: 20px; }
 @keyframes loaderAnimation {
-
-    from {
-        transform: translateY(0);
-    }
-
-    to {
-        transform: translateY(-15px);
-    }
-
+    from { transform: translateY(0); }
+    to { transform: translateY(-15px); }
 }
-
 
 /* =========================================
    NAVBAR
 ========================================= */
-
 #navbar {
-
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 65px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 65px;
+    display: flex; align-items: center; justify-content: space-between;
     padding: 0 35px;
-
-    background:
-        rgba(23, 59, 42, .96);
-
-    color: white;
-
-    z-index: 1000;
-
-    box-shadow:
-        0 3px 15px rgba(0,0,0,.2);
-
+    background: rgba(23, 59, 42, .96);
+    color: white; z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0,0,0,.2);
 }
-
-
-.logo {
-
-    font-size: 21px;
-    font-weight: bold;
-
-}
-
-
-.nav-links {
-
-    display: flex;
-    gap: 20px;
-
-}
-
-
+.logo { font-size: 21px; font-weight: bold; }
+.nav-links { display: flex; gap: 20px; }
 .nav-links a {
-
-    color: white;
-    text-decoration: none;
-
-    font-size: 14px;
-
-    transition: .3s;
-
+    color: white; text-decoration: none;
+    font-size: 14px; transition: .3s;
 }
-
-
-.nav-links a:hover {
-
-    color: var(--gold);
-
-}
-
+.nav-links a:hover { color: var(--gold); }
 
 /* =========================================
    PROGRESO
 ========================================= */
-
 #progress-container {
-
-    position: fixed;
-
-    top: 65px;
-    left: 0;
-
-    width: 100%;
-    height: 4px;
-
-    background:
-        rgba(0,0,0,.2);
-
-    z-index: 1001;
-
+    position: fixed; top: 65px; left: 0;
+    width: 100%; height: 4px;
+    background: rgba(0,0,0,.2); z-index: 1001;
 }
-
-
 #progress-bar {
-
-    width: 0%;
-    height: 100%;
-
+    width: 0%; height: 100%;
     background: var(--gold);
-
-    transition:
-        width .15s linear;
-
+    transition: width .15s linear;
 }
-
 
 /* =========================================
    INTRO
 ========================================= */
-
 .intro {
-
     min-height: 100vh;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #315f42,
-            var(--green-dark)
-        );
-
+    background: radial-gradient(circle at center, #315f42, var(--green-dark));
     color: white;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding:
-        100px 30px 50px;
-
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 100px 30px 50px;
 }
-
-
-.intro-content {
-
-    max-width: 750px;
-
-}
-
-
+.intro-content { max-width: 750px; }
 .seed {
-
-    font-size: 90px;
-    margin-bottom: 20px;
-
-    animation:
-        seedFloat
-        3s infinite ease-in-out;
-
+    font-size: 90px; margin-bottom: 20px;
+    animation: seedFloat 3s infinite ease-in-out;
 }
-
-
 @keyframes seedFloat {
-
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
-
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
 }
-
-
 .intro h1 {
-
-    font-size:
-        clamp(45px, 7vw, 85px);
-
-    margin-bottom: 25px;
-
-    letter-spacing: 2px;
-
+    font-size: clamp(45px, 7vw, 85px);
+    margin-bottom: 25px; letter-spacing: 2px;
 }
-
-
 .intro p {
-
-    font-size: 20px;
-    line-height: 1.8;
-
-    opacity: .9;
-
-    margin-bottom: 35px;
-
+    font-size: 20px; line-height: 1.8;
+    opacity: .9; margin-bottom: 35px;
 }
-
-
-#start-btn,
-#restart-btn {
-
-    border: none;
-
-    padding:
-        16px 30px;
-
-    border-radius: 40px;
-
-    background: var(--gold);
-
+#start-btn, #restart-btn {
+    border: none; padding: 16px 30px;
+    border-radius: 40px; background: var(--gold);
     color: var(--brown-dark);
-
-    font-weight: bold;
-
-    font-size: 17px;
-
-    cursor: pointer;
-
-    transition: .3s;
-
-    box-shadow:
-        0 7px 20px rgba(0,0,0,.25);
-
+    font-weight: bold; font-size: 17px;
+    cursor: pointer; transition: .3s;
+    box-shadow: 0 7px 20px rgba(0,0,0,.25);
 }
-
-
-#start-btn:hover,
-#restart-btn:hover {
-
-    transform:
-        translateY(-4px)
-        scale(1.03);
-
+#start-btn:hover, #restart-btn:hover {
+    transform: translateY(-4px) scale(1.03);
     background: #e8bd62;
-
 }
-
 
 /* =========================================
    ÁRBOL
 ========================================= */
-
 #tree-container {
-
-    position: fixed;
-
-    left: 0;
-    top: 110px;
-
-    width: 48vw;
-    height:
-        calc(100vh - 130px);
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    z-index: 10;
-
-    pointer-events: none;
-
-    opacity: 0;
-
-    transform:
-        translateX(-90px);
-
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
-
+    position: fixed; left: 0; top: 110px;
+    width: 48vw; height: calc(100vh - 130px);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 10; pointer-events: none;
+    opacity: 0; transform: translateX(-90px);
+    transition: opacity .8s ease, transform .8s ease;
 }
-
-
-#tree-container.tree-visible {
-
-    opacity: 1;
-
-    transform:
-        translateX(0);
-
-}
-
-
-#tree-container.tree-hidden {
-
-    opacity: 0;
-
-    transform:
-        translateX(-90px);
-
-}
-
-
+#tree-container.tree-visible { opacity: 1; transform: translateX(0); }
+#tree-container.tree-hidden { opacity: 0; transform: translateX(-90px); }
 #tree {
-
-    position: relative;
-
-    width: 480px;
-    height: 650px;
-
-    transform-origin:
-        center bottom;
-
+    position: relative; width: 480px; height: 650px;
+    transform-origin: center bottom;
 }
-
 
 /* =========================================
    SUELO
 ========================================= */
-
 .ground {
-
-    position: absolute;
-
-    bottom: 28px;
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    width: 330px;
-    height: 55px;
-
+    position: absolute; bottom: 28px; left: 50%;
+    transform: translateX(-50%);
+    width: 330px; height: 55px;
     border-radius: 50%;
-
-    background:
-        radial-gradient(
-            ellipse,
-            #563822,
-            #3a261a
-        );
-
-    box-shadow:
-        0 10px 15px
-        rgba(0,0,0,.25);
-
+    background: radial-gradient(ellipse, #563822, #3a261a);
+    box-shadow: 0 10px 15px rgba(0,0,0,.25);
 }
-
 
 /* =========================================
    COPA
 ========================================= */
-
 .tree-canopy {
-
-    position: absolute;
-
-    top: 20px;
-    left: 20px;
-
-    width: 440px;
-    height: 285px;
-
+    position: absolute; top: 20px; left: 20px;
+    width: 440px; height: 285px;
     border-radius: 50%;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 45%,
-            #75a85c 0%,
-            #4d854b 38%,
-            #32683f 72%,
-            #245334 100%
-        );
-
-    filter:
-        drop-shadow(
-            0 12px 8px
-            rgba(0,0,0,.25)
-        );
-
-    pointer-events: none;
-
-    z-index: 1;
-
+    background: radial-gradient(ellipse at 50% 45%, #75a85c 0%, #4d854b 38%, #32683f 72%, #245334 100%);
+    filter: drop-shadow(0 12px 8px rgba(0,0,0,.25));
+    pointer-events: none; z-index: 1;
 }
 
-
-/* =========================================
-   HOJAS DECORATIVAS
-========================================= */
-
+/* HOJAS DECORATIVAS */
 .canopy-leaf {
-
-    position: absolute;
-
-    font-size: 45px;
-
-    opacity: .75;
-
-    pointer-events: none;
-
-    filter:
-        drop-shadow(
-            0 3px 2px
-            rgba(0,0,0,.2)
-        );
-
+    position: absolute; font-size: 45px;
+    opacity: .75; pointer-events: none;
+    filter: drop-shadow(0 3px 2px rgba(0,0,0,.2));
 }
-
-
-.leaf-a {
-    left: 35px;
-    top: 55px;
-    transform: rotate(-25deg);
-}
-
-.leaf-b {
-    left: 100px;
-    top: 15px;
-    transform: rotate(15deg);
-}
-
-.leaf-c {
-    left: 180px;
-    top: 5px;
-    transform: rotate(-10deg);
-}
-
-.leaf-d {
-    right: 80px;
-    top: 25px;
-    transform: rotate(25deg);
-}
-
-.leaf-e {
-    right: 25px;
-    top: 75px;
-    transform: rotate(-20deg);
-}
-
-.leaf-f {
-    left: 55px;
-    bottom: 40px;
-    transform: rotate(20deg);
-}
-
-.leaf-g {
-    left: 150px;
-    bottom: 15px;
-    transform: rotate(-15deg);
-}
-
-.leaf-h {
-    right: 150px;
-    bottom: 10px;
-    transform: rotate(20deg);
-}
-
-.leaf-i {
-    right: 70px;
-    bottom: 45px;
-    transform: rotate(-25deg);
-}
-
-.leaf-j {
-    right: 20px;
-    top: 125px;
-    transform: rotate(15deg);
-}
-
+.leaf-a { left: 35px; top: 55px; transform: rotate(-25deg); }
+.leaf-b { left: 100px; top: 15px; transform: rotate(15deg); }
+.leaf-c { left: 180px; top: 5px; transform: rotate(-10deg); }
+.leaf-d { right: 80px; top: 25px; transform: rotate(25deg); }
+.leaf-e { right: 25px; top: 75px; transform: rotate(-20deg); }
+.leaf-f { left: 55px; bottom: 40px; transform: rotate(20deg); }
+.leaf-g { left: 150px; bottom: 15px; transform: rotate(-15deg); }
+.leaf-h { right: 150px; bottom: 10px; transform: rotate(20deg); }
+.leaf-i { right: 70px; bottom: 45px; transform: rotate(-25deg); }
+.leaf-j { right: 20px; top: 125px; transform: rotate(15deg); }
 
 /* =========================================
    PARTES DEL ÁRBOL
 ========================================= */
-
 .tree-part {
-
-    position: absolute;
-
-    opacity: .18;
-
-    filter:
-        grayscale(.8);
-
-    transition:
-        opacity .5s ease,
-        filter .5s ease,
-        transform .5s ease;
-
+    position: absolute; opacity: .18;
+    filter: grayscale(.8);
+    transition: opacity .5s ease, filter .5s ease, transform .5s ease;
     pointer-events: none;
-
 }
-
-
 .tree-part.active {
-
-    opacity: 1;
-
-    filter: none;
-
-    pointer-events: auto;
-
+    opacity: 1; filter: none; pointer-events: auto;
 }
-
 
 /* =========================================
    TRONCO
 ========================================= */
-
-.tronco {
-
-    left: 175px;
-    top: 215px;
-
-    width: 130px;
-    height: 330px;
-
-    z-index: 5;
-
-}
-
-
+.tronco { left: 175px; top: 215px; width: 130px; height: 330px; z-index: 5; }
 .trunk-main {
-
-    position: absolute;
-
-    left: 20px;
-    top: 0;
-
-    width: 90px;
-    height: 310px;
-
-    border-radius:
-        45% 55% 15% 15%;
-
-    background:
-        linear-gradient(
-            90deg,
-            #4b2c1c,
-            #805035,
-            #5a321f
-        );
-
-    box-shadow:
-        inset 8px 0
-        rgba(255,255,255,.08),
-
-        inset -8px 0
-        rgba(0,0,0,.15);
-
+    position: absolute; left: 20px; top: 0;
+    width: 90px; height: 310px;
+    border-radius: 45% 55% 15% 15%;
+    background: linear-gradient(90deg, #4b2c1c, #805035, #5a321f);
+    box-shadow: inset 8px 0 rgba(255,255,255,.08), inset -8px 0 rgba(0,0,0,.15);
 }
-
-
-.trunk-main::before,
-.trunk-main::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 8px;
-    height: 180px;
-
-    background:
-        rgba(50,25,15,.3);
-
-    border-radius: 50%;
-
+.trunk-main::before, .trunk-main::after {
+    content: ""; position: absolute;
+    width: 8px; height: 180px;
+    background: rgba(50,25,15,.3); border-radius: 50%;
 }
-
-
-.trunk-main::before {
-
-    left: 28px;
-    top: 35px;
-
-    transform:
-        rotate(7deg);
-
-}
-
-
-.trunk-main::after {
-
-    right: 25px;
-    top: 70px;
-
-    transform:
-        rotate(-8deg);
-
-}
-
-
+.trunk-main::before { left: 28px; top: 35px; transform: rotate(7deg); }
+.trunk-main::after { right: 25px; top: 70px; transform: rotate(-8deg); }
 .trunk-point {
-
-    position: absolute;
-
-    top: 125px;
-    left: 35px;
-
-    width: 60px;
-    height: 60px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background:
-        rgba(216,169,75,.85);
-
-    cursor: pointer;
-
-    font-size: 28px;
-
-    transition: .3s;
-
-    z-index: 10;
-
+    position: absolute; top: 125px; left: 35px;
+    width: 60px; height: 60px; border: none;
+    border-radius: 50%; background: rgba(216,169,75,.85);
+    cursor: pointer; font-size: 28px; transition: .3s; z-index: 10;
 }
-
-
 .trunk-point:hover {
-
-    transform:
-        scale(1.2);
-
-    box-shadow:
-        0 0 25px var(--gold);
-
+    transform: scale(1.2); box-shadow: 0 0 25px var(--gold);
 }
-
 
 /* =========================================
    RAMAS
 ========================================= */
-
 .ramas {
-
-    left: 85px;
-    top: 120px;
-
-    width: 310px;
-    height: 250px;
-
-    z-index: 4;
-
+    left: 175px; top: 100px; width: 130px; height: 150px; z-index: 4;
 }
-
-
 .branch {
-
-    position: absolute;
-
-    height: 25px;
-
-    border-radius: 30px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #4c2b1a,
-            #70442a
-        );
-
-    transform-origin:
-        left center;
-
+    position: absolute; bottom: 0; left: 50%;
+    width: 20px; margin-left: -10px;
+    transform-origin: bottom center;
+    background: linear-gradient(to top, #4c2b1a, #70442a);
+    border-radius: 10px 10px 2px 2px;
+    box-shadow: inset -2px 0 3px rgba(0,0,0,0.3);
 }
-
-
-.branch-left {
-
-    width: 170px;
-
-    left: 120px;
-    top: 100px;
-
-    transform:
-        rotate(210deg);
-
-}
-
-
-.branch-right {
-
-    width: 175px;
-
-    left: 125px;
-    top: 110px;
-
-    transform:
-        rotate(-25deg);
-
-}
-
-
-.branch-center {
-
-    width: 150px;
-
-    left: 125px;
-    top: 115px;
-
-    transform:
-        rotate(-90deg);
-
-}
-
+.branch-left { height: 120px; transform: rotate(-45deg); }
+.branch-center { height: 150px; transform: rotate(0deg); }
+.branch-right { height: 120px; transform: rotate(45deg); }
 
 .branch-point {
-
-    position: absolute;
-
-    width: 45px;
-    height: 45px;
-
-    border-radius: 50%;
-
-    border: none;
-
-    background: var(--gold);
-
-    color: white;
-
-    cursor: pointer;
-
-    font-size: 20px;
-
-    transition: .3s;
-
-    z-index: 10;
-
+    position: absolute; width: 40px; height: 40px;
+    border-radius: 50%; border: none;
+    background: var(--gold); color: white;
+    cursor: pointer; font-size: 18px; transition: .3s; z-index: 10;
 }
-
-
 .branch-point:hover {
-
-    transform:
-        scale(1.25);
-
-    box-shadow:
-        0 0 20px var(--gold);
-
+    transform: scale(1.25); box-shadow: 0 0 20px var(--gold);
 }
-
-
-.point-left {
-
-    left: 55px;
-    top: 30px;
-
-}
-
-
-.point-right {
-
-    right: 20px;
-    top: 60px;
-
-}
-
+.point-left { left: -40px; top: 45px; }
+.point-right { left: 130px; top: 45px; }
 
 /* =========================================
    HOJAS INTERACTIVAS
 ========================================= */
-
 .hojas {
-
-    position: absolute;
-
-    left: 20px;
-    top: 20px;
-
-    width: 440px;
-    height: 290px;
-
-    z-index: 8;
-
+    position: absolute; left: 20px; top: 20px;
+    width: 440px; height: 290px; z-index: 8;
     pointer-events: none;
-
 }
-
-
 .interactive-leaf {
-
-    position: absolute;
-
-    width: 58px;
-    height: 58px;
-
-    border: none;
-
-    background:
-        rgba(255,255,255,.05);
-
-    border-radius: 50%;
-
-    font-size: 42px;
-
-    cursor: pointer;
-
-    transition: .3s;
-
-    pointer-events: none;
-
+    position: absolute; width: 58px; height: 58px;
+    border: none; background: rgba(255,255,255,.05);
+    border-radius: 50%; font-size: 42px;
+    cursor: pointer; transition: .3s; pointer-events: none;
 }
-
-
-.hojas.active .interactive-leaf {
-
-    pointer-events: auto;
-
-}
-
-
+.hojas.active .interactive-leaf { pointer-events: auto; }
 .interactive-leaf:hover {
-
-    transform:
-        scale(1.3)
-        rotate(10deg);
-
-    filter:
-        drop-shadow(
-            0 0 12px #a9d477
-        );
-
+    transform: scale(1.3) rotate(10deg);
+    filter: drop-shadow(0 0 12px #a9d477);
 }
-
-
-.leaf-1 {
-    left: 80px;
-    top: 80px;
-}
-
-.leaf-2 {
-    left: 205px;
-    top: 40px;
-}
-
-.leaf-3 {
-    right: 60px;
-    top: 100px;
-}
-
-.leaf-4 {
-    left: 170px;
-    bottom: 20px;
-}
-
+.leaf-1 { left: 80px; top: 80px; }
+.leaf-2 { left: 205px; top: 40px; }
+.leaf-3 { right: 60px; top: 100px; }
+.leaf-4 { left: 170px; bottom: 20px; }
 
 /* =========================================
    RAÍCES
 ========================================= */
-
 .raices {
-
-    left: 80px;
-    top: 485px;
-
-    width: 320px;
-    height: 150px;
-
-    z-index: 6;
-
+    left: 175px; top: 480px; width: 130px; height: 100px; z-index: 6;
 }
-
-
 .root {
-
-    position: absolute;
-
-    height: 22px;
-
-    border-radius: 50%;
-
-    background:
-        linear-gradient(
-            90deg,
-            #4a2a19,
-            #75452c
-        );
-
-    transform-origin:
-        left center;
-
+    position: absolute; top: 0; left: 50%;
+    width: 16px; margin-left: -8px;
+    transform-origin: top center;
+    background: linear-gradient(to bottom, #36261c, #1c120c); 
+    border-radius: 2px 2px 10px 10px;
+    box-shadow: inset 1px 0 3px rgba(0,0,0,0.5);
 }
-
-
-.root-1 {
-    width: 180px;
-    left: 140px;
-    top: 20px;
-    transform: rotate(155deg);
-}
-
-.root-2 {
-    width: 170px;
-    left: 140px;
-    top: 45px;
-    transform: rotate(180deg);
-}
-
-.root-3 {
-    width: 180px;
-    left: 140px;
-    top: 70px;
-    transform: rotate(205deg);
-}
-
-.root-4 {
-    width: 140px;
-    left: 145px;
-    top: 95px;
-    transform: rotate(225deg);
-}
-
-.root-5 {
-    width: 150px;
-    left: 140px;
-    top: 30px;
-    transform: rotate(25deg);
-}
-
+.root-1 { height: 80px; transform: rotate(45deg); }
+.root-2 { height: 100px; transform: rotate(20deg); }
+.root-3 { height: 100px; transform: rotate(-20deg); }
+.root-4 { height: 80px; transform: rotate(-45deg); }
 
 .root-point {
-
-    position: absolute;
-
-    width: 40px;
-    height: 40px;
-
-    border-radius: 50%;
-
-    border: none;
-
-    background: var(--gold);
-
-    color: white;
-
-    cursor: pointer;
-
-    transition: .3s;
-
-    z-index: 10;
-
+    position: absolute; width: 38px; height: 38px;
+    border-radius: 50%; border: none;
+    background: var(--gold); color: white;
+    cursor: pointer; transition: .3s; z-index: 10;
 }
-
-
 .root-point:hover {
-
-    transform:
-        scale(1.25);
-
-    box-shadow:
-        0 0 20px var(--gold);
-
+    transform: scale(1.25); box-shadow: 0 0 20px var(--gold);
 }
-
-
-.root-point-1 {
-    left: 5px;
-    top: 20px;
-}
-
-.root-point-2 {
-    left: 45px;
-    top: 75px;
-}
-
-.root-point-3 {
-    right: 15px;
-    top: 80px;
-}
-
-.root-point-4 {
-    right: 30px;
-    top: 15px;
-}
-
+.root-point-1 { left: -10px; top: 37px; }
+.root-point-2 { left: 12px; top: 75px; }
+.root-point-3 { left: 80px; top: 75px; }
+.root-point-4 { left: 102px; top: 37px; }
 
 /* =========================================
-   CONTENIDO
+   CONTENIDO GENERAL
 ========================================= */
-
 #journey {
-
-    margin-left: 48%;
-
-    width: 52%;
-
-    position: relative;
-
-    z-index: 2;
-
+    margin-left: 48%; width: 52%;
+    position: relative; z-index: 2;
 }
-
-
 .journey-section {
-
-    min-height: 100vh;
-
-    padding:
-        130px 8vw 80px 5vw;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
+    min-height: 100vh; padding: 130px 8vw 80px 5vw;
+    display: flex; flex-direction: column; justify-content: center;
     position: relative;
-
 }
-
-
-.journey-section:nth-child(even) {
-
-    background:
-        rgba(255,255,255,.22);
-
-}
-
-
+.journey-section:nth-child(even) { background: rgba(255,255,255,.22); }
 .section-number {
-
-    color: var(--gold);
-
-    font-size: 18px;
-
-    font-weight: bold;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 15px;
-
+    color: var(--gold); font-size: 18px; font-weight: bold;
+    letter-spacing: 3px; margin-bottom: 15px;
 }
-
-
 .journey-section h2 {
-
-    font-size:
-        clamp(40px, 5vw, 65px);
-
-    color: var(--green-dark);
-
-    margin-bottom: 25px;
-
+    font-size: clamp(40px, 5vw, 65px);
+    color: var(--green-dark); margin-bottom: 25px;
 }
-
-
 .section-intro {
-
-    max-width: 650px;
-
-    font-size: 20px;
-
-    line-height: 1.8;
-
-    margin-bottom: 30px;
-
+    max-width: 650px; font-size: 20px;
+    line-height: 1.8; margin-bottom: 30px;
 }
 
-
-/* =========================================
-   INSTRUCCIÓN
-========================================= */
-
+/* INSTRUCCIÓN */
 .instruction {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    width: fit-content;
-
-    padding:
-        12px 18px;
-
-    border-radius: 30px;
-
-    background:
-        rgba(216,169,75,.2);
-
-    color: var(--brown-dark);
-
-    margin-bottom: 30px;
-
-    font-size: 15px;
-
+    display: inline-flex; align-items: center; gap: 10px;
+    width: fit-content; padding: 12px 18px;
+    border-radius: 30px; background: rgba(216,169,75,.2);
+    color: var(--brown-dark); margin-bottom: 30px; font-size: 15px;
 }
 
-
-/* =========================================
-   TARJETA RAÍCES
-========================================= */
-
+/* TARJETAS Y GRIDS */
 .question-card {
-
-    max-width: 600px;
-
-    padding: 30px;
-
-    border-radius: 20px;
-
-    background:
-        rgba(255,255,255,.6);
-
-    box-shadow:
-        0 10px 30px var(--shadow);
-
+    max-width: 600px; padding: 30px;
+    border-radius: 20px; background: rgba(255,255,255,.6);
+    box-shadow: 0 10px 30px var(--shadow);
 }
-
-
-.question-card h3 {
-
-    font-size: 27px;
-
-    margin-bottom: 15px;
-
-    color: var(--green-dark);
-
-}
-
-
-.question-card p {
-
-    line-height: 1.7;
-
-    font-size: 17px;
-
-}
-
-
-/* =========================================
-   CONCEPTOS
-========================================= */
+.question-card h3 { font-size: 27px; margin-bottom: 15px; color: var(--green-dark); }
+.question-card p { line-height: 1.7; font-size: 17px; }
 
 .concept-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(150px, 1fr));
-
-    gap: 18px;
-
-    max-width: 650px;
-
+    display: grid; grid-template-columns: repeat(2, minmax(150px, 1fr));
+    gap: 18px; max-width: 650px;
 }
-
-
 .concept {
-
-    border: none;
-
-    padding: 25px;
-
-    text-align: left;
-
-    background:
-        rgba(255,255,255,.7);
-
-    border-radius: 18px;
-
-    cursor: pointer;
-
-    transition: .3s;
-
-    box-shadow:
-        0 7px 20px
-        rgba(0,0,0,.1);
-
+    border: none; padding: 25px; text-align: left;
+    background: rgba(255,255,255,.7); border-radius: 18px;
+    cursor: pointer; transition: .3s;
+    box-shadow: 0 7px 20px rgba(0,0,0,.1);
 }
-
-
-.concept:hover {
-
-    transform:
-        translateY(-7px);
-
-    background: white;
-
-    box-shadow:
-        0 12px 30px
-        rgba(0,0,0,.18);
-
-}
-
-
-.concept span {
-
-    font-size: 35px;
-
-    display: block;
-
-    margin-bottom: 12px;
-
-}
-
-
-.concept strong {
-
-    display: block;
-
-    font-size: 21px;
-
-    color: var(--green-dark);
-
-    margin-bottom: 7px;
-
-}
-
-
-.concept small {
-
-    font-size: 14px;
-
-    line-height: 1.4;
-
-}
-
-
-/* =========================================
-   DECISIONES
-========================================= */
+.concept:hover { transform: translateY(-7px); background: white; box-shadow: 0 12px 30px rgba(0,0,0,.18); }
+.concept span { font-size: 35px; display: block; margin-bottom: 12px; }
+.concept strong { display: block; font-size: 21px; color: var(--green-dark); margin-bottom: 7px; }
+.concept small { font-size: 14px; line-height: 1.4; }
 
 .decision-box {
-
-    max-width: 650px;
-
-    padding: 35px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.8),
-            rgba(255,255,255,.4)
-        );
-
-    border-radius: 25px;
-
-    box-shadow:
-        0 10px 30px
-        rgba(0,0,0,.12);
-
+    max-width: 650px; padding: 35px;
+    background: linear-gradient(135deg, rgba(255,255,255,.8), rgba(255,255,255,.4));
+    border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,.12);
 }
-
-
-.decision-box h3 {
-
-    font-size: 28px;
-
-    color: var(--green-dark);
-
-    margin-bottom: 15px;
-
-}
-
-
-.decision-box p {
-
-    line-height: 1.7;
-
-    margin-bottom: 25px;
-
-}
-
-
-.decision-buttons {
-
-    display: flex;
-
-    gap: 15px;
-
-    flex-wrap: wrap;
-
-}
-
-
+.decision-box h3 { font-size: 28px; color: var(--green-dark); margin-bottom: 15px; }
+.decision-box p { line-height: 1.7; margin-bottom: 25px; }
+.decision-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
 .decision-buttons button {
-
-    border: none;
-
-    padding:
-        13px 20px;
-
-    border-radius: 30px;
-
-    background: var(--green);
-
-    color: white;
-
-    cursor: pointer;
-
-    transition: .3s;
-
+    border: none; padding: 13px 20px; border-radius: 30px;
+    background: var(--green); color: white; cursor: pointer; transition: .3s;
 }
+.decision-buttons button:hover { transform: translateY(-3px); background: var(--green-dark); }
 
+.reflection-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 650px; }
+.reflection { padding: 25px; background: rgba(255,255,255,.65); border-radius: 18px; transition: .3s; }
+.reflection:hover { transform: scale(1.03); }
+.reflection span { font-size: 25px; }
+.reflection p { margin-top: 10px; font-size: 18px; }
 
-.decision-buttons button:hover {
-
-    transform:
-        translateY(-3px);
-
-    background:
-        var(--green-dark);
-
-}
-
+.fruit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 700px; }
+.fruit-card { text-align: center; padding: 25px 15px; background: rgba(255,255,255,.7); border-radius: 20px; }
+.fruit-card span { font-size: 50px; }
+.fruit-card h3 { margin: 12px 0; color: var(--green-dark); }
+.fruit-card p { font-size: 14px; line-height: 1.5; }
 
 /* =========================================
-   REFLEXIONES
+   EL ESTUDIANTE Y VIDEOS
 ========================================= */
-
-.reflection-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 18px;
-
-    max-width: 650px;
-
-}
-
-
-.reflection {
-
-    padding: 25px;
-
-    background:
-        rgba(255,255,255,.65);
-
-    border-radius: 18px;
-
-    transition: .3s;
-
-}
-
-
-.reflection:hover {
-
-    transform:
-        scale(1.03);
-
-}
-
-
-.reflection span {
-
-    font-size: 25px;
-
-}
-
-
-.reflection p {
-
-    margin-top: 10px;
-
-    font-size: 18px;
-
-}
-
-
-/* =========================================
-   FRUTOS
-========================================= */
-
-.fruit-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 18px;
-
-    max-width: 700px;
-
-}
-
-
-.fruit-card {
-
-    text-align: center;
-
-    padding:
-        25px 15px;
-
-    background:
-        rgba(255,255,255,.7);
-
-    border-radius: 20px;
-
-}
-
-
-.fruit-card span {
-
-    font-size: 50px;
-
-}
-
-
-.fruit-card h3 {
-
-    margin: 12px 0;
-
-    color: var(--green-dark);
-
-}
-
-
-.fruit-card p {
-
-    font-size: 14px;
-
-    line-height: 1.5;
-
-}
-
-
-/* =========================================
-   EL ESTUDIANTE
-========================================= */
-
-.student-section {
-
-    background:
-        linear-gradient(
-            135deg,
-            #eadbbd,
-            #f6ecd9
-        );
-
-}
-
-
-/*
-   EL ESTUDIANTE COMIENZA COMPLETAMENTE OCULTO.
-
-   Ocultamos directamente todos los elementos
-   que están dentro de la sección.
-*/
-
+.student-section { background: linear-gradient(135deg, #eadbbd, #f6ecd9); }
 .student-section > * {
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transform:
-        translateY(35px);
-
-    pointer-events: none;
-
-    transition:
-        opacity .8s ease,
-        transform .8s ease,
-        visibility .8s ease;
-
+    opacity: 0; visibility: hidden; transform: translateY(35px);
+    pointer-events: none; transition: opacity .8s ease, transform .8s ease, visibility .8s ease;
 }
-
-
-/*
-   SOLAMENTE cuando la manzana caída
-   haya sido presionada, se desbloquea
-   toda la sección.
-*/
-
 .student-section.unlocked > * {
-
-    opacity: 1;
-
-    visibility: visible;
-
-    transform:
-        translateY(0);
-
-    pointer-events: auto;
-
+    opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto;
 }
-
-
-/* =========================================
-   PELÍCULA
-========================================= */
-
 .movie-card {
-
-    max-width: 600px;
-
-    padding: 40px;
-
-    background:
-        rgba(255,255,255,.75);
-
-    border-radius: 25px;
-
-    box-shadow:
-        0 12px 35px
-        rgba(0,0,0,.12);
-
+    max-width: 700px; padding: 40px; background: rgba(255,255,255,.75);
+    border-radius: 25px; box-shadow: 0 12px 35px rgba(0,0,0,.12);
+    width: 100%;
 }
+.movie-icon { font-size: 55px; margin-bottom: 20px; }
+.movie-card h3 { color: var(--green-dark); font-size: 27px; margin-bottom: 15px; }
+.movie-card p { line-height: 1.7; margin-bottom: 25px; }
 
-
-.movie-icon {
-
-    font-size: 55px;
-
-    margin-bottom: 20px;
-
+/* NUEVO: Contenedor para las 2 escenas */
+.movie-scenes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
 }
-
-
-.movie-card h3 {
-
-    color: var(--green-dark);
-
-    font-size: 27px;
-
-    margin-bottom: 15px;
-
-}
-
-
-.movie-card p {
-
-    line-height: 1.7;
-
-    margin-bottom: 25px;
-
-}
-
-
-.movie-button {
-
-    display: inline-block;
-
-    padding:
-        13px 20px;
-
-    border-radius: 30px;
-
-    background: var(--green);
-
-    color: white;
-
-    text-decoration: none;
-
-    transition: .3s;
-
-}
-
-
-.movie-button:hover {
-
-    transform:
-        translateY(-3px);
-
-    background:
-        var(--green-dark);
-
-}
-
-
-/* =========================================
-   FINAL
-========================================= */
-
-.final-section {
-
-    min-height: 100vh;
-
-    background:
-        var(--green-dark);
-
-    color: white;
-
+.scene-placeholder {
+    background: #d1c4ae;
+    border: 2px dashed #9a8b74;
+    border-radius: 15px;
+    height: 180px;
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     justify-content: center;
-
+    color: #6b5b44;
+    font-weight: bold;
     text-align: center;
-
-    padding:
-        60px 30px;
-
+    padding: 15px;
+    transition: .3s;
 }
-
-
-.final-tree {
-
-    font-size: 110px;
-
-    margin-bottom: 25px;
-
-}
-
-
-.final-section h2 {
-
-    font-size:
-        clamp(45px, 7vw, 80px);
-
-    margin-bottom: 25px;
-
-}
-
-
-.final-section p {
-
-    max-width: 650px;
-
-    font-size: 20px;
-
-    line-height: 1.7;
-
-    margin-bottom: 10px;
-
-}
-
-
-.final-section button {
-
-    margin-top: 30px;
-
-}
-
+.scene-placeholder:hover { background: #c4b59d; }
+.scene-placeholder span { font-size: 30px; margin-bottom: 10px; }
+.scene-placeholder p { margin-bottom: 0; font-size: 14px; }
 
 /* =========================================
-   MODAL
+   NUEVA SECCIÓN: AUTOESTIMA
 ========================================= */
-
-.modal {
-
-    position: fixed;
-
-    inset: 0;
-
-    background:
-        rgba(0,0,0,.65);
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition: .3s;
-
-    z-index: 5000;
-
+.autoestima-section {
+    background: rgba(255,255,255,.25);
 }
 
-
-.modal.show {
-
-    opacity: 1;
-
-    visibility: visible;
-
-}
-
-
-.modal-content {
-
-    width:
-        min(600px, 100%);
-
-    padding: 45px;
-
-    background:
-        var(--cream-light);
-
-    border-radius: 25px;
-
-    text-align: center;
-
-    position: relative;
-
-    transform:
-        scale(.8);
-
-    transition: .3s;
-
-}
-
-
-.modal.show .modal-content {
-
-    transform:
-        scale(1);
-
-}
-
-
-#modal-icon {
-
-    font-size: 60px;
-
-    margin-bottom: 15px;
-
-}
-
-
-#modal-title {
-
+.subtitle {
+    font-size: 28px;
     color: var(--green-dark);
-
-    font-size: 35px;
-
-    margin-bottom: 20px;
-
+    margin: 40px 0 20px;
 }
 
-
-#modal-text {
-
-    font-size: 18px;
-
-    line-height: 1.8;
-
+/* CÓDIGO QR */
+.qr-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    max-width: 700px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+.qr-placeholder {
+    width: 150px;
+    height: 150px;
+    background: #f0f0f0;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    color: #888;
+    font-size: 14px;
+    padding: 10px;
+    flex-shrink: 0;
+}
+.qr-text h3 {
+    color: var(--green-dark);
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+.qr-text p {
+    line-height: 1.6;
+    font-size: 16px;
+    color: var(--text);
 }
 
+/* TARJETAS DE AUTOESTIMA */
+.autoestima-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 700px;
+    margin-bottom: 40px;
+}
+.autoestima-card {
+    background: rgba(255,255,255,.8);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    border-top: 4px solid var(--green);
+}
+.autoestima-card:nth-child(2) { border-top-color: #5cb85c; }
+.autoestima-card:nth-child(3) { border-top-color: #d9534f; }
+.autoestima-card:nth-child(4) { border-top-color: #f0ad4e; }
 
+.autoestima-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.autoestima-card h4 {
+    font-size: 20px;
+    color: var(--green-dark);
+    margin-bottom: 10px;
+}
+.autoestima-card p {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* TABLA COMPARATIVA */
+.table-container {
+    width: 100%;
+    max-width: 800px;
+    overflow-x: auto; /* Permite scroll horizontal en móviles */
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    padding: 20px;
+}
+.autoestima-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Asegura que la tabla no se aplaste demasiado */
+}
+.autoestima-table th, .autoestima-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+}
+.autoestima-table th {
+    background-color: var(--green);
+    color: white;
+    font-weight: bold;
+}
+.autoestima-table th:first-child { border-top-left-radius: 10px; }
+.autoestima-table th:last-child { border-top-right-radius: 10px; }
+.autoestima-table tr:nth-child(even) { background-color: #f9f9f9; }
+.autoestima-table tr:hover { background-color: #f1f1f1; }
+
+/* FINAL */
+.final-section {
+    min-height: 100vh; background: var(--green-dark); color: white;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 30px;
+}
+.final-tree { font-size: 110px; margin-bottom: 25px; }
+.final-section h2 { font-size: clamp(45px, 7vw, 80px); margin-bottom: 25px; }
+.final-section p { max-width: 650px; font-size: 20px; line-height: 1.7; margin-bottom: 10px; }
+.final-section button { margin-top: 30px; }
+
+/* MODAL */
+.modal {
+    position: fixed; inset: 0; background: rgba(0,0,0,.65);
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px; opacity: 0; visibility: hidden; transition: .3s; z-index: 5000;
+}
+.modal.show { opacity: 1; visibility: visible; }
+.modal-content {
+    width: min(600px, 100%); padding: 45px; background: var(--cream-light);
+    border-radius: 25px; text-align: center; position: relative;
+    transform: scale(.8); transition: .3s;
+}
+.modal.show .modal-content { transform: scale(1); }
+#modal-icon { font-size: 60px; margin-bottom: 15px; }
+#modal-title { color: var(--green-dark); font-size: 35px; margin-bottom: 20px; }
+#modal-text { font-size: 18px; line-height: 1.8; }
 .close-modal {
-
-    position: absolute;
-
-    right: 20px;
-    top: 15px;
-
-    border: none;
-
-    background: none;
-
-    font-size: 35px;
-
-    cursor: pointer;
-
-    color: var(--brown-dark);
-
+    position: absolute; right: 20px; top: 15px; border: none;
+    background: none; font-size: 35px; cursor: pointer; color: var(--brown-dark);
 }
 
-
-/* =========================================
-   ANIMACIÓN DEL ÁRBOL
-========================================= */
-
-.tree-part.active {
-
-    animation:
-        treePartAppear
-        .7s ease;
-
-}
-
-
+/* ANIMACIÓN DEL ÁRBOL */
+.tree-part.active { animation: treePartAppear .7s ease; }
 @keyframes treePartAppear {
-
-    from {
-
-        opacity: .3;
-
-        transform:
-            scale(.96);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            scale(1);
-
-    }
-
+    from { opacity: .3; transform: scale(.96); }
+    to { opacity: 1; transform: scale(1); }
 }
-
 
 /* =========================================
    MANZANAS
 ========================================= */
-
 .frutos {
-
-    position: absolute;
-
-    left: 20px;
-    top: 20px;
-
-    width: 440px;
-    height: 290px;
-
-    z-index: 7;
-
-    pointer-events: none;
-
+    position: absolute; left: 20px; top: 20px;
+    width: 440px; height: 290px; z-index: 7; pointer-events: none;
 }
-
-
 .fruit {
-
-    position: absolute;
-
-    width: 55px;
-    height: 55px;
-
-    border: none;
-
-    background: transparent;
-
-    font-size: 43px;
-
-    cursor: pointer;
-
-    transition:
-        transform .3s ease,
-        filter .3s ease;
-
-    pointer-events: none;
-
-    z-index: 10;
-
+    position: absolute; width: 55px; height: 55px; border: none;
+    background: transparent; font-size: 43px; cursor: pointer;
+    transition: transform .3s ease, filter .3s ease;
+    pointer-events: none; z-index: 10;
 }
-
-
-.frutos.active .fruit {
-
-    pointer-events: auto;
-
-}
-
-
-.fruit:nth-child(1) {
-
-    left: 105px;
-    top: 135px;
-
-}
-
-
-.fruit:nth-child(2) {
-
-    left: 285px;
-    top: 75px;
-
-}
-
-
-.fruit:nth-child(3) {
-
-    left: 205px;
-    top: 190px;
-
-}
-
-
+.frutos.active .fruit { pointer-events: auto; }
+.fruit:nth-child(1) { left: 105px; top: 135px; }
+.fruit:nth-child(2) { left: 285px; top: 75px; }
+.fruit:nth-child(3) { left: 205px; top: 190px; }
 .fruit:hover {
-
-    transform:
-        scale(1.3)
-        rotate(-8deg);
-
-    filter:
-        drop-shadow(
-            0 0 12px
-            rgba(216,169,75,.9)
-        );
-
+    transform: scale(1.3) rotate(-8deg);
+    filter: drop-shadow(0 0 12px rgba(216,169,75,.9));
 }
-
 
 /* =========================================
    CAÍDA DE MANZANA
 ========================================= */
-
 .fruit.falling {
-
     pointer-events: none;
-
-    animation:
-        appleFall
-        1.8s ease-in forwards;
-
+    animation: appleFall 1.8s ease-in forwards;
+    z-index: 50;
 }
-
-
 @keyframes appleFall {
-
-    0% {
-
-        transform:
-            translateY(0)
-            rotate(0deg);
-
-    }
-
-    25% {
-
-        transform:
-            translateY(25px)
-            rotate(15deg);
-
-    }
-
-    50% {
-
-        transform:
-            translateY(90px)
-            rotate(-20deg);
-
-    }
-
-    75% {
-
-        transform:
-            translateY(170px)
-            rotate(35deg);
-
-    }
-
-    100% {
-
-        transform:
-            translateY(245px)
-            rotate(70deg);
-
-    }
-
+    0% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(25px) rotate(15deg); }
+    50% { transform: translateY(90px) rotate(-20deg); }
+    75% { transform: translateY(170px) rotate(35deg); }
+    100% { transform: translateY(245px) rotate(70deg); }
 }
-
 
 .fruit.fallen {
-
-    pointer-events: auto;
-
+    pointer-events: auto !important;
     cursor: pointer;
-
-    animation:
-        appleBounce
-        .5s ease;
-
+    animation: appleBounce .5s ease;
+    transform: translateY(245px) rotate(70deg) !important;
+    z-index: 50;
 }
-
-
 @keyframes appleBounce {
-
-    0% {
-
-        transform:
-            translateY(245px)
-            rotate(70deg)
-            scale(1);
-
-    }
-
-    50% {
-
-        transform:
-            translateY(232px)
-            rotate(65deg)
-            scale(1.12);
-
-    }
-
-    100% {
-
-        transform:
-            translateY(245px)
-            rotate(70deg)
-            scale(1);
-
-    }
-
+    0% { transform: translateY(245px) rotate(70deg) scale(1); }
+    50% { transform: translateY(232px) rotate(65deg) scale(1.12); }
+    100% { transform: translateY(245px) rotate(70deg) scale(1); }
 }
-
-
 .fruit.fallen:hover {
-
-    transform:
-        translateY(245px)
-        rotate(70deg)
-        scale(1.25);
-
-    filter:
-        drop-shadow(
-            0 0 15px
-            rgba(216,169,75,.95)
-        );
-
+    transform: translateY(245px) rotate(70deg) scale(1.25) !important;
+    filter: drop-shadow(0 0 15px rgba(216,169,75,.95));
 }
 
-
-/* =========================================
-   MENSAJE DE LA MANZANA
-========================================= */
-
+/* MENSAJE DE LA MANZANA */
 .apple-message {
-
-    position: absolute;
-
-    left: 50%;
-    top: 475px;
-
-    transform:
-        translateX(-50%);
-
-    padding:
-        10px 18px;
-
-    background:
-        rgba(255,250,240,.95);
-
-    border:
-        2px solid var(--gold);
-
-    border-radius: 20px;
-
-    color:
-        var(--green-dark);
-
-    font-weight: 600;
-
-    font-size: 14px;
-
-    white-space: nowrap;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition:
-        opacity .4s ease;
-
-    z-index: 20;
-
+    position: absolute; left: 50%; top: 475px;
+    transform: translateX(-50%);
+    padding: 10px 18px; background: rgba(255,250,240,.95);
+    border: 2px solid var(--gold); border-radius: 20px;
+    color: var(--green-dark); font-weight: 600; font-size: 14px;
+    white-space: nowrap; opacity: 0; pointer-events: none;
+    transition: opacity .4s ease; z-index: 20;
 }
-
-
-.apple-message.show {
-
-    opacity: 1;
-
-}
-
+.apple-message.show { opacity: 1; }
 
 /* =========================================
    RESPONSIVE
 ========================================= */
-
 @media (max-width: 1000px) {
-
     #tree-container {
-
-        position: relative;
-
-        top: auto;
-        left: auto;
-
-        width: 100%;
-        height: 600px;
-
-        margin-top: 30px;
-
-        pointer-events: none;
-
+        position: relative; top: auto; left: auto;
+        width: 100%; height: 600px; margin-top: 30px; pointer-events: none;
     }
-
-
-    #tree {
-
-        transform:
-            scale(.75);
-
-    }
-
-
-    #journey {
-
-        margin-left: 0;
-
-        width: 100%;
-
-    }
-
-
-    .journey-section {
-
-        padding:
-            80px 8vw;
-
-    }
-
-
-    .nav-links {
-
-        display: none;
-
-    }
-
-
-    #navbar {
-
-        justify-content: center;
-
-    }
-
+    #tree { transform: scale(.75); }
+    #journey { margin-left: 0; width: 100%; }
+    .journey-section { padding: 80px 8vw; }
+    .nav-links { display: none; }
+    #navbar { justify-content: center; }
 }
-
-
+@media (max-width: 700px) {
+    .movie-scenes { grid-template-columns: 1fr; }
+    .autoestima-grid { grid-template-columns: 1fr; }
+    .qr-container { flex-direction: column; text-align: center; }
+}
 @media (max-width: 600px) {
-
-    #tree-container {
-
-        height: 500px;
-
-    }
-
-
-    #tree {
-
-        transform:
-            scale(.58);
-
-    }
-
-
-    .concept-grid,
-    .reflection-grid,
-    .fruit-grid {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-
-    .intro p {
-
-        font-size: 17px;
-
-    }
-
-
-    .journey-section h2 {
-
-        font-size: 42px;
-
-    }
-
-
-    .modal-content {
-
-        padding:
-            35px 20px;
-
-    }
-
+    #tree-container { height: 500px; }
+    #tree { transform: scale(.58); }
+    .concept-grid, .reflection-grid, .fruit-grid { grid-template-columns: 1fr; }
+    .intro p { font-size: 17px; }
+    .journey-section h2 { font-size: 42px; }
+    .modal-content { padding: 35px 20px; }
 }
