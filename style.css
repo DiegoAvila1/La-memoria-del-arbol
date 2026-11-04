@@ -397,7 +397,7 @@ button { font-family: inherit; }
 .fruit-card p { font-size: 14px; line-height: 1.5; }
 
 /* =========================================
-   EL ESTUDIANTE Y GUION (ESPACIADO)
+   EL ESTUDIANTE Y GALERÍA
 ========================================= */
 .student-section { background: linear-gradient(135deg, #eadbbd, #f6ecd9); }
 .student-section > * {
@@ -416,7 +416,33 @@ button { font-family: inherit; }
 .movie-card h3 { color: var(--green-dark); font-size: 27px; margin-bottom: 15px; }
 .movie-card p { line-height: 1.7; margin-bottom: 25px; font-size: 16px; }
 
-/* Estilos del Guion Espaciados */
+/* Galería de imágenes */
+.movie-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+.gallery-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ddd;
+}
+.poster-img {
+    object-fit: contain;
+    background: #f4ead5;
+}
+.gallery-img:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Guion espaciado */
 .script-container {
     background: var(--cream-light);
     padding: 35px 30px;
@@ -425,14 +451,8 @@ button { font-family: inherit; }
     box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
     margin-top: 25px;
 }
-
-.dialogue-line {
-    margin-bottom: 25px;
-}
-.dialogue-line:last-child {
-    margin-bottom: 0;
-}
-
+.dialogue-line { margin-bottom: 25px; }
+.dialogue-line:last-child { margin-bottom: 0; }
 .character-name {
     font-weight: bold;
     color: var(--green-dark);
@@ -442,7 +462,6 @@ button { font-family: inherit; }
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
 .dialogue-text {
     color: #444;
     font-style: italic;
@@ -458,7 +477,6 @@ button { font-family: inherit; }
 .autoestima-section {
     background: rgba(255,255,255,.25);
 }
-
 .subtitle {
     font-size: 28px;
     color: var(--green-dark);
@@ -696,6 +714,8 @@ button { font-family: inherit; }
 @media (max-width: 700px) {
     .autoestima-grid { grid-template-columns: 1fr; }
     .qr-container { flex-direction: column; text-align: center; }
+    .movie-gallery { grid-template-columns: 1fr; }
+    .gallery-img { height: 200px; }
 }
 @media (max-width: 600px) {
     #tree-container { height: 500px; }
