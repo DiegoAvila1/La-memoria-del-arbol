@@ -397,7 +397,7 @@ button { font-family: inherit; }
 .fruit-card p { font-size: 14px; line-height: 1.5; }
 
 /* =========================================
-   EL ESTUDIANTE Y GUION
+   EL ESTUDIANTE Y GUION (ESPACIADO)
 ========================================= */
 .student-section { background: linear-gradient(135deg, #eadbbd, #f6ecd9); }
 .student-section > * {
@@ -416,32 +416,40 @@ button { font-family: inherit; }
 .movie-card h3 { color: var(--green-dark); font-size: 27px; margin-bottom: 15px; }
 .movie-card p { line-height: 1.7; margin-bottom: 25px; font-size: 16px; }
 
-/* NUEVO: Estilos del Guion */
+/* Estilos del Guion Espaciados */
 .script-container {
     background: var(--cream-light);
-    padding: 25px;
+    padding: 35px 30px;
     border-radius: 15px;
     border-left: 5px solid var(--gold);
     box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-    margin-top: 20px;
+    margin-top: 25px;
 }
+
 .dialogue-line {
-    margin-bottom: 15px;
-    font-size: 16px;
-    line-height: 1.6;
+    margin-bottom: 25px;
 }
 .dialogue-line:last-child {
     margin-bottom: 0;
 }
+
 .character-name {
     font-weight: bold;
     color: var(--green-dark);
     display: block;
-    margin-bottom: 3px;
+    margin-bottom: 6px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
+
 .dialogue-text {
     color: #444;
     font-style: italic;
+    display: block;
+    line-height: 1.8;
+    padding-left: 15px;
+    border-left: 2px solid rgba(216,169,75, 0.4);
 }
 
 /* =========================================
